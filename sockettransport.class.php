@@ -235,6 +235,7 @@ class SocketTransport
 			print_r('self::$forceIpv6'.self::$forceIpv6);echo('</br>');
 			print_R('$ip4s'.$ip4s);echo('</br>');
 			if (!self::$forceIpv4 && !empty($ip6s)) { // Attempt IPv6s first
+				echo '12311';
 				foreach ($ip6s as $ip) {
 					if ($this->debug) call_user_func($this->debugHandler, "Connecting to $ip:$port...");
 					$r = @socket_connect($socket6, $ip, $port);
