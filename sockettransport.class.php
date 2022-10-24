@@ -60,6 +60,7 @@ class SocketTransport
 	protected function resolveHosts($hosts)
 	{
 		$i = 0;
+		print_r($hosts);
 		foreach($hosts as $host) {
 			list($hostname,$port) = $host;
 			$ip4s = array();
