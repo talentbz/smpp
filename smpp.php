@@ -257,7 +257,6 @@ class SMPP{
 	function sendPDU($command_id, $pdu, $seq_number){
 		$length=strlen($pdu) + 16;
 		$header=pack("NNNN", $length, $command_id, 0, $seq_number);
-		print_r('$this->debug'.$this->debug);
 		if($this->debug){
 			echo "Send PDU        : $length bytes\n";
 			$this->printHex($header.$pdu);
@@ -265,6 +264,7 @@ class SMPP{
 			echo "sequence number : $seq_number\n\n";
 		}
 		fwrite($this->socket, $header.$pdu, $length);
+		print_r(fwrite($this->socket, $header.$pdu, $length));
 	}
 	/**
 	 * @private function
