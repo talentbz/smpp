@@ -239,6 +239,8 @@ class SMPP{
 	 * @return PDU status or false on error
 	 */
 	function sendCommand($command_id, $pdu){
+		print_r('$this->state'.$this->state);
+		exit;
 		if($this->state=="closed")return false;
 		$this->sendPDU($command_id, $pdu, $this->sequence_number);
 		$status=$this->readPDU_resp($this->sequence_number, $command_id);
