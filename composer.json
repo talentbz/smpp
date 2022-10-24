@@ -1,0 +1,5 @@
+{
+    "require": {
+        "glushkovds/php-smpp": "^0.5"
+    }
+}
