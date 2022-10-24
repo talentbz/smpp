@@ -33,12 +33,12 @@
 	// $smpp->close();
 	$socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
 	socket_connect($socket, '94.130.198.32', 65432);
-
+	print_r('123');
+	exit;
 	while (TRUE) {
 			$r = array($socket);
 			$c = socket_select($r, $w = NULL, $e = NULL, 5);
-			print_r($r);
-			exit;
+			
 			foreach ($r as $read_socket) {
 					if ($r = negotiate($read_socket)) {
 							var_dump($r);
