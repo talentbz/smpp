@@ -263,6 +263,8 @@ class SMPP{
 			echo "command_id      : ".$command_id."\n";
 			echo "sequence number : $seq_number\n\n";
 		}
+		print_r($this->socket, $header.$pdu, $length);
+		exit;
 		fwrite($this->socket, $header.$pdu, $length);
 		print_r(fwrite($this->socket, $header.$pdu, $length));
 	}
