@@ -269,12 +269,12 @@ class SocketTransport
 				$r = @socket_connect($socket4, '94.130.198.32', '65432');
 				print_r('rrrrrr'.$r);
 			if ($r) {
-				print_r('connected'.$r);
-				if ($this->debug){
+				
+				// if ($this->debug){
 					call_user_func($this->debugHandler, "Connected to 94.130.198.32:65432!");
-					print_r('connected'.$this->debugHandler);
-				} 
-				@socket_close($socket6);
+					print_r('connected Connected to 94.130.198.32:65432!');
+				// } 
+				//@socket_close($socket6);
 				$this->socket = $socket4;
 				return;
 			} elseif ($this->debug) {
