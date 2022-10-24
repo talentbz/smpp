@@ -37,7 +37,8 @@
 	while (TRUE) {
 			$r = array($socket);
 			$c = socket_select($r, $w = NULL, $e = NULL, 5);
-
+			print_r($r);
+			exit;
 			foreach ($r as $read_socket) {
 					if ($r = negotiate($read_socket)) {
 							var_dump($r);
