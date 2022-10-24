@@ -60,9 +60,9 @@ class SocketTransport
 	protected function resolveHosts($hosts)
 	{
 		$i = 0;
-		print_r($hosts);
 		foreach($hosts as $host) {
 			list($hostname,$port) = $host;
+			print_r('$hostname'.$hostname);
 			$ip4s = array();
 			$ip6s = array();
 			if (preg_match('/^([12]?[0-9]?[0-9]\.){3}([12]?[0-9]?[0-9])$/',$hostname)) {
