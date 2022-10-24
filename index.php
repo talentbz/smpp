@@ -2,8 +2,7 @@
 	require_once 'smppclient.class.php';
 	require_once 'gsmencoder.class.php';
 	require_once 'sockettransport.class.php';
-	print_r('123');
-	exit;
+	
 	// Construct transport and client
 	$transport = new SocketTransport(array('94.130.198.32'),65432);
 	$transport->setRecvTimeout(10000);
@@ -16,8 +15,7 @@
 	
 	// Prepare message
 	$message = 'Hello World €$£';
-	// $encodedMessage = GsmEncoder::utf8_to_gsm0338($message);
-	
+	$encodedMessage = GsmEncoder::utf8_to_gsm0338($message);
 	$from = new SmppAddress('MelroseLabs',SMPP::TON_ALPHANUMERIC);
 	foreach($phone_address as $key=>$row){
 		$to = new SmppAddress($row ,SMPP::TON_INTERNATIONAL,SMPP::NPI_E164);	
