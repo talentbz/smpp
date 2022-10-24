@@ -17,6 +17,7 @@
 	$message = 'Hello World €$£';
 	// $encodedMessage = GsmEncoder::utf8_to_gsm0338($message);
 	print_r('123');
+	exit;
 	$from = new SmppAddress('MelroseLabs',SMPP::TON_ALPHANUMERIC);
 	foreach($phone_address as $key=>$row){
 		$to = new SmppAddress($row ,SMPP::TON_INTERNATIONAL,SMPP::NPI_E164);	
