@@ -107,7 +107,6 @@ class SocketTransport
 			
 			// Add results to pool
 			$this->hosts[] = array($hostname,$port,$ip6s,$ip4s);
-			print_r('hiest'.$this->hosts);
 		}
 		if ($this->debug) call_user_func($this->debugHandler, "Built connection pool of ".count($this->hosts)." host(s) with $i ip(s) in total");
 		if (empty($this->hosts)) throw new InvalidArgumentException('No valid hosts was found');
@@ -243,6 +242,7 @@ class SocketTransport
 						call_user_func($this->debugHandler, "Socket connect to $ip:$port failed; ".socket_strerror(socket_last_error()));
 					}
 				}
+				echo '123';
 			}
 			if (!self::$forceIpv6 && !empty($ip4s)) {
 				foreach ($ip4s as $ip) {
@@ -257,6 +257,7 @@ class SocketTransport
 						call_user_func($this->debugHandler, "Socket connect to $ip:$port failed; ".socket_strerror(socket_last_error()));
 					}
 				}
+				echo '456';
 			}
 			$it->next();
 		}
