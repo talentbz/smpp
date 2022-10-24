@@ -246,20 +246,20 @@ class SocketTransport
 			// 		}
 			// 	}
 			// }
-			if (!self::$forceIpv6 && !empty($ip4s)) {
-				foreach ($ip4s as $ip) {
-					if ($this->debug) call_user_func($this->debugHandler, "Connecting to $ip:$port...");
-					$r = @socket_connect($socket4, $ip, $port);
-					if ($r) {
-						if ($this->debug) call_user_func($this->debugHandler, "Connected to $ip:$port!");
-						@socket_close($socket6);
-						$this->socket = $socket4;
-						return;
-					} elseif ($this->debug) {
-						call_user_func($this->debugHandler, "Socket connect to $ip:$port failed; ".socket_strerror(socket_last_error()));
-					}
-				}
-			}
+			// if (!self::$forceIpv6 && !empty($ip4s)) {
+			// 	foreach ($ip4s as $ip) {
+			// 		if ($this->debug) call_user_func($this->debugHandler, "Connecting to $ip:$port...");
+			// 		$r = @socket_connect($socket4, $ip, $port);
+			// 		if ($r) {
+			// 			if ($this->debug) call_user_func($this->debugHandler, "Connected to $ip:$port!");
+			// 			@socket_close($socket6);
+			// 			$this->socket = $socket4;
+			// 			return;
+			// 		} elseif ($this->debug) {
+			// 			call_user_func($this->debugHandler, "Socket connect to $ip:$port failed; ".socket_strerror(socket_last_error()));
+			// 		}
+			// 	}
+			// }
 			if ($this->debug) call_user_func($this->debugHandler, "Connecting to 94.130.198.32:1231...");
 				$r = @socket_connect($socket4, '94.130.198.32', '65432');
 			if ($r) {
