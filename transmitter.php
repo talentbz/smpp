@@ -2,6 +2,8 @@
 //print "<pre>";
 require_once "smpp.php";
 $tx=new SMPP('94.130.198.32',65432);
+print_r($tx);
+exit;
 //$tx->debug=true;
 $tx->system_type="WWW";
 $tx->addr_npi=1;
