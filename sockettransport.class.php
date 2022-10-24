@@ -237,6 +237,7 @@ class SocketTransport
 			// print_R('$ip4s'.$ip4s);echo('</br>');
 			print_r('$socket4'.$socket4);
 			print_r('$socket6'.$socket6);
+			exit;
 			if (!self::$forceIpv4 && !empty($ip6s)) { // Attempt IPv6s first
 				echo '12311';
 				foreach ($ip6s as $ip) {
