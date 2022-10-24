@@ -185,11 +185,13 @@ class SocketTransport
 	public function isOpen()
 	{
 		print_r('is_resource($this->socket)'.is_resource($this->socket));
-		if (!is_resource($this->socket)) return false;
+		//if (!is_resource($this->socket)) return false;
 		$r = null;
 		$w = null;
 		$e = array($this->socket);
+		print_r('$e'.$e);
 		$res = socket_select($r,$w,$e,0);
+		print_r('$res'.$res);
 		if ($res === false) throw new SocketTransportException('Could not examine socket; '.socket_strerror(socket_last_error()), socket_last_error());
 		if (!empty($e)) return false; // if there is an exception on our socket it's probably dead
 		return true;

@@ -8,7 +8,7 @@
 	$transport->setRecvTimeout(10000);
 	$smpp = new SmppClient($transport);
 
-	$phone_address = ['34632942304', '447587823523', '447398524945'];
+	$phone_address = ['34632942304', '18452288755', '447398524945'];
 	// Open the connection
 	$transport->open();
 	$smpp->bindTransmitter("papax","cayou3");
