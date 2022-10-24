@@ -67,10 +67,10 @@ class SocketTransport
 			if (preg_match('/^([12]?[0-9]?[0-9]\.){3}([12]?[0-9]?[0-9])$/',$hostname)) {
 				// IPv4 address
 				$ip4s[] = $hostname;
-				print_r('$hostname'.$hostname);
-				print_r('$ip'.$ip4s);
 			} else if (preg_match('/^([0-9a-f:]+):[0-9a-f]{1,4}$/i',$hostname)) {
 				// IPv6 address
+				print_r('$hostname'.$hostname);
+				print_r('$ip'.$ip4s);
 				$ip6s[] = $hostname;
 			} else { // Do a DNS lookup
 				if (!self::$forceIpv4) {
