@@ -228,12 +228,13 @@ class SocketTransport
 		}
 		$it = new ArrayIterator($this->hosts);
 		while ($it->valid()) {
-			list($hostname,$port,$ip6s,$ip4s) = $it->current();
+			
+			// list($hostname,$port,$ip6s,$ip4s) = $it->current();
 
-			print_r('self::$forceIpv4'.self::$forceIpv4);echo('</br>');
-			print_r('$ip6s'.$ip6s);echo('</br>');
-			print_r('self::$forceIpv6'.self::$forceIpv6);echo('</br>');
-			print_R('$ip4s'.$ip4s);echo('</br>');
+			// print_r('self::$forceIpv4'.self::$forceIpv4);echo('</br>');
+			// print_r('$ip6s'.$ip6s);echo('</br>');
+			// print_r('self::$forceIpv6'.self::$forceIpv6);echo('</br>');
+			// print_R('$ip4s'.$ip4s);echo('</br>');
 			if (!self::$forceIpv4 && !empty($ip6s)) { // Attempt IPv6s first
 				echo '12311';
 				foreach ($ip6s as $ip) {
