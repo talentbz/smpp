@@ -4,7 +4,7 @@
 	require_once 'sockettransport.class.php';
 	
 	// Construct transport and client
-	$transport = new SocketTransport(array('94.130.198.32'),array('65432'));
+	$transport = new SocketTransport(array('google.com'),array('65432'));
 	$transport->setRecvTimeout(10000);
 	$smpp = new SmppClient($transport);
 
