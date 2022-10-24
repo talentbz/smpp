@@ -240,9 +240,9 @@ class SMPP{
 	 */
 	function sendCommand($command_id, $pdu){
 		print_r('$this->state'.$this->state);
-		exit;
 		if($this->state=="closed")return false;
 		$this->sendPDU($command_id, $pdu, $this->sequence_number);
+		print_r('sendp');
 		$status=$this->readPDU_resp($this->sequence_number, $command_id);
 		$this->sequence_number=$this->sequence_number+1;
 		return $status;
@@ -257,6 +257,7 @@ class SMPP{
 	function sendPDU($command_id, $pdu, $seq_number){
 		$length=strlen($pdu) + 16;
 		$header=pack("NNNN", $length, $command_id, 0, $seq_number);
+		print_r('$this->debug'.$this->debug);
 		if($this->debug){
 			echo "Send PDU        : $length bytes\n";
 			$this->printHex($header.$pdu);
