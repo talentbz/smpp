@@ -230,10 +230,10 @@ class SocketTransport
 		while ($it->valid()) {
 			list($hostname,$port,$ip6s,$ip4s) = $it->current();
 
-			print_r('self::$forceIpv4'.self::$forceIpv4);
-			print_r('$ip6s'.$ip6s);
-			print_r('self::$forceIpv6'.self::$forceIpv6);
-			print_R('$ip4s'.$ip4s);
+			print_r('self::$forceIpv4'.self::$forceIpv4);echo('</br>');
+			print_r('$ip6s'.$ip6s);echo('</br>');
+			print_r('self::$forceIpv6'.self::$forceIpv6);echo('</br>');
+			print_R('$ip4s'.$ip4s);echo('</br>');
 			if (!self::$forceIpv4 && !empty($ip6s)) { // Attempt IPv6s first
 				foreach ($ip6s as $ip) {
 					if ($this->debug) call_user_func($this->debugHandler, "Connecting to $ip:$port...");
