@@ -69,8 +69,6 @@ class SocketTransport
 				$ip4s[] = $hostname;
 			} else if (preg_match('/^([0-9a-f:]+):[0-9a-f]{1,4}$/i',$hostname)) {
 				// IPv6 address
-				print_r('$hostname'.$hostname);
-				print_r('$ip'.$ip4s);
 				$ip6s[] = $hostname;
 			} else { // Do a DNS lookup
 				if (!self::$forceIpv4) {
@@ -109,6 +107,7 @@ class SocketTransport
 			
 			// Add results to pool
 			$this->hosts[] = array($hostname,$port,$ip6s,$ip4s);
+			print_r('hiest'.$this->hosts);
 		}
 		if ($this->debug) call_user_func($this->debugHandler, "Built connection pool of ".count($this->hosts)." host(s) with $i ip(s) in total");
 		if (empty($this->hosts)) throw new InvalidArgumentException('No valid hosts was found');
