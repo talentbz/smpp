@@ -223,7 +223,7 @@ class SocketTransport
 		}
 		if (!self::$forceIpv6) {
 			$socket4 = @socket_create(AF_INET,SOCK_STREAM,SOL_TCP);
-			print_r($socket4);
+			
 			if ($socket4 == false) throw new SocketTransportException('Could not create socket; '.socket_strerror(socket_last_error()), socket_last_error());
 			socket_set_option($socket4,SOL_SOCKET,SO_SNDTIMEO,$this->millisecToSolArray(self::$defaultSendTimeout));
 			socket_set_option($socket4,SOL_SOCKET,SO_RCVTIMEO,$this->millisecToSolArray(self::$defaultRecvTimeout));
@@ -232,20 +232,20 @@ class SocketTransport
 		while ($it->valid()) {
 			list($hostname,$port,$ip6s,$ip4s) = $it->current();
 			
-			if (!self::$forceIpv4 && !empty($ip6s)) { // Attempt IPv6s first
-				foreach ($ip6s as $ip) {
-					if ($this->debug) call_user_func($this->debugHandler, "Connecting to $ip:$port...");
-					$r = @socket_connect($socket6, $ip, $port);
-					if ($r) {
-						if ($this->debug) call_user_func($this->debugHandler, "Connected to $ip:$port!");
-						@socket_close($socket4);
-						$this->socket = $socket6;
-						return;
-					} elseif ($this->debug) {
-						call_user_func($this->debugHandler, "Socket connect to $ip:$port failed; ".socket_strerror(socket_last_error()));
-					}
-				}
-			}
+			// if (!self::$forceIpv4 && !empty($ip6s)) { // Attempt IPv6s first
+			// 	foreach ($ip6s as $ip) {
+			// 		if ($this->debug) call_user_func($this->debugHandler, "Connecting to $ip:$port...");
+			// 		$r = @socket_connect($socket6, $ip, $port);
+			// 		if ($r) {
+			// 			if ($this->debug) call_user_func($this->debugHandler, "Connected to $ip:$port!");
+			// 			@socket_close($socket4);
+			// 			$this->socket = $socket6;
+			// 			return;
+			// 		} elseif ($this->debug) {
+			// 			call_user_func($this->debugHandler, "Socket connect to $ip:$port failed; ".socket_strerror(socket_last_error()));
+			// 		}
+			// 	}
+			// }
 			if (!self::$forceIpv6 && !empty($ip4s)) {
 				foreach ($ip4s as $ip) {
 					if ($this->debug) call_user_func($this->debugHandler, "Connecting to $ip:$port...");
@@ -259,6 +259,16 @@ class SocketTransport
 						call_user_func($this->debugHandler, "Socket connect to $ip:$port failed; ".socket_strerror(socket_last_error()));
 					}
 				}
+			}
+			if ($this->debug) call_user_func($this->debugHandler, "Connecting to 94.130.198.32:1231...");
+				$r = @socket_connect($socket4, '94.130.198.32', '65432');
+			if ($r) {
+				if ($this->debug) call_user_func($this->debugHandler, "Connected to 94.130.198.32:65432!");
+				@socket_close($socket6);
+				$this->socket = $socket4;
+				return;
+			} elseif ($this->debug) {
+				call_user_func($this->debugHandler, "Socket connect to 94.130.198.32:65432 failed; ".socket_strerror(socket_last_error()));
 			}
 			$it->next();
 		}
