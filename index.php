@@ -1,38 +1,34 @@
 <?php
-require_once 'vendor/autoload.php';
+	require_once 'smppclient.class.php';
+	require_once 'gsmencoder.class.php';
+	require_once 'sockettransport.class.php';
+	
+	// Construct transport and client
+	$transport = new SocketTransport(array('94.130.198.32'),array('65432'));
+	$transport->setRecvTimeout(10000);
+	$smpp = new SmppClient($transport);
 
-use OnlineCity\Transport\SocketTransport;
-use OnlineCity\SMPP\SMPP;
-use OnlineCity\SMPP\SmppClient;
-use OnlineCity\SMPP\SmppAddress;
-use OnlineCity\Encoder\GsmEncoder; 
-
-// Construct transport and client
-$transport = new SocketTransport(array('94.130.198.32'),65432);
-$transport->setRecvTimeout(10000);
-$smpp = new SmppClient($transport);
-
-// Activate binary hex-output of server interaction
-$smpp->debug = true;
-$transport->debug = true;
-
-// Open the connection
-$transport->open();
-$smpp->bindTransmitter("papax","cayou3");
-
-// Optional connection specific overrides
-//SmppClient::$sms_null_terminate_octetstrings = false;
-//SmppClient::$csms_method = SmppClient::CSMS_PAYLOAD;
-//SmppClient::$sms_registered_delivery_flag = SMPP::REG_DELIVERY_SMSC_BOTH;
-
-// Prepare message
-$message = 'H€llo world';
-$encodedMessage = GsmEncoder::utf8_to_gsm0338($message);
-$from = new SmppAddress('SMPP Test',SMPP::TON_ALPHANUMERIC);
-$to = new SmppAddress(4512345678,SMPP::TON_INTERNATIONAL,SMPP::NPI_E164);
-
-// Send
-$smpp->sendSMS($from,$to,$encodedMessage,$tags);
-
-// Close connection
-$smpp->close();
+	$phone_address = ['34632942304', '447398524945', '447443815802'];
+	// Open the connection
+	$transport->open();
+	$smpp->bindTransmitter("papax","cayou3");
+	
+	// Prepare message
+	$message = 'Hello World €$£';
+	// $encodedMessage = GsmEncoder::utf8_to_gsm0338($message);
+	$from = new SmppAddress('MelroseLabs',SMPP::TON_ALPHANUMERIC);
+	foreach($phone_address as $key=>$row){
+		$to = new SmppAddress($row ,SMPP::TON_INTERNATIONAL,SMPP::NPI_E164);	
+		// Send
+		$messageID = $smpp->sendSMS($from,$to,$encodedMessage);
+		echo '<pre>';
+		print_r($key.$messageID);
+		echo '</pre>';
+	}
+	echo '<pre>';
+    print_r($messageID);
+    echo '</pre>';
+    exit;
+	// Close connection
+	$smpp->close();
+?>

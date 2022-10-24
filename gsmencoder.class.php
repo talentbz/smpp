@@ -1,7 +1,4 @@
 <?php
-
-namespace OnlineCity\Encoder;
-
 /**
  * Class capable of encoding GSM 03.38 default alphabet and packing octets into septets as described by GSM 03.38.
  * Based on mapping: http://www.unicode.org/Public/MAPPINGS/ETSI/GSM0338.TXT
@@ -31,7 +28,7 @@ class GsmEncoder
 			'Δ' => "\x10", '_' => "\x11", 'Φ' => "\x12", 'Γ' => "\x13", 'Λ' => "\x14", 'Ω' => "\x15", 'Π' => "\x16", 'Ψ' => "\x17", 'Σ' => "\x18", 'Θ' => "\x19", 'Ξ' => "\x1A", 'Æ' => "\x1C", 'æ' => "\x1D", 'ß' => "\x1E", 'É' => "\x1F",
 			// all \x2? removed
 			// all \x3? removed
-			'¡' => "\x40",
+			// all \x4? removed
 			'Ä' => "\x5B", 'Ö' => "\x5C", 'Ñ' => "\x5D", 'Ü' => "\x5E", '§' => "\x5F",
 			'¿' => "\x60",
 			'ä' => "\x7B", 'ö' => "\x7C", 'ñ' => "\x7D", 'ü' => "\x7E", 'à' => "\x7F",

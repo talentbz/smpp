@@ -1,9 +1,5 @@
 <?php
 
-namespace OnlineCity\Transport;
-
-use OnlineCity\Transport\Exception\SocketTransportException;
-
 /**
  * TCP Socket Transport for use with multiple protocols.
  * Supports connection pools and IPv6 in addition to providing a few public methods to make life easier.
@@ -113,7 +109,7 @@ class SocketTransport
 			$this->hosts[] = array($hostname,$port,$ip6s,$ip4s);
 		}
 		if ($this->debug) call_user_func($this->debugHandler, "Built connection pool of ".count($this->hosts)." host(s) with $i ip(s) in total");
-		if (empty($this->hosts)) throw new \InvalidArgumentException('No valid hosts was found');
+		if (empty($this->hosts)) throw new InvalidArgumentException('No valid hosts was found');
 	}
 
 	/**
@@ -230,7 +226,7 @@ class SocketTransport
 			socket_set_option($socket4,SOL_SOCKET,SO_SNDTIMEO,$this->millisecToSolArray(self::$defaultSendTimeout));
 			socket_set_option($socket4,SOL_SOCKET,SO_RCVTIMEO,$this->millisecToSolArray(self::$defaultRecvTimeout));
 		}
-		$it = new \ArrayIterator($this->hosts);
+		$it = new ArrayIterator($this->hosts);
 		while ($it->valid()) {
 			list($hostname,$port,$ip6s,$ip4s) = $it->current();
 			if (!self::$forceIpv4 && !empty($ip6s)) { // Attempt IPv6s first
@@ -378,3 +374,5 @@ class SocketTransport
 		}
 	}
 }
+
+class SocketTransportException extends RuntimeException { }
