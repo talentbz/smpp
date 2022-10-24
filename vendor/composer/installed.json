@@ -1,33 +1,36 @@
 {
     "packages": [
         {
-            "name": "glushkovds/php-smpp",
-            "version": "v0.5.1",
-            "version_normalized": "0.5.1.0",
+            "name": "its/php-smpp",
+            "version": "dev-master",
+            "version_normalized": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/glushkovds/php-smpp.git",
-                "reference": "b0e4c977a885c2d1e7a8bdb944af424b48d05cc8"
+                "url": "https://github.com/agladkov/php-smpp.git",
+                "reference": "5e68a5ee531f99b1793d0c666646c361909390e9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/glushkovds/php-smpp/zipball/b0e4c977a885c2d1e7a8bdb944af424b48d05cc8",
-                "reference": "b0e4c977a885c2d1e7a8bdb944af424b48d05cc8",
+                "url": "https://api.github.com/repos/agladkov/php-smpp/zipball/5e68a5ee531f99b1793d0c666646c361909390e9",
+                "reference": "5e68a5ee531f99b1793d0c666646c361909390e9",
                 "shasum": ""
             },
             "require": {
                 "ext-sockets": "*",
-                "php": ">=7.1.0"
+                "php": ">=5.3.0"
             },
-            "require-dev": {
-                "phpunit/phpunit": "^9.3"
-            },
-            "time": "2020-11-19T07:18:35+00:00",
+            "time": "2019-11-16T09:59:51+00:00",
+            "default-branch": true,
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.0-dev"
+                }
+            },
             "installation-source": "dist",
             "autoload": {
-                "psr-4": {
-                    "PhpSmpp\\": "src/"
+                "psr-0": {
+                    "OnlineCity": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -36,23 +39,27 @@
             ],
             "authors": [
                 {
-                    "name": "Denis Glushkov",
-                    "email": "amkarovec@gmail.com",
-                    "homepage": "https://github.com/glushkovds"
+                    "name": "OnlineCity",
+                    "email": "hd@onlinecity.dk",
+                    "homepage": "http://www.onlinecity.dk/"
+                },
+                {
+                    "name": "Anton Gladkov",
+                    "email": "agladkov@it-lame.ru",
+                    "homepage": "http://www.it-lame.ru"
                 }
             ],
-            "description": "Implementation SMPP v3.4 protocol. Includes sending and listening USSD.",
-            "homepage": "https://github.com/glushkovds/php-smpp",
+            "description": "PHP SMPP client library",
+            "homepage": "http://github.com/agladkov/php-smpp",
             "keywords": [
                 "lib",
                 "php",
                 "smpp"
             ],
             "support": {
-                "issues": "https://github.com/glushkovds/php-smpp/issues",
-                "source": "https://github.com/glushkovds/php-smpp/tree/v0.5.1"
+                "source": "https://github.com/agladkov/php-smpp/tree/master"
             },
-            "install-path": "../glushkovds/php-smpp"
+            "install-path": "../its/php-smpp"
         }
     ],
     "dev": true,

@@ -1,0 +1,36 @@
+{
+    "name": "its/php-smpp",
+    "description": "PHP SMPP client library",
+    "keywords": ["smpp", "php", "lib"],
+    "homepage": "http://github.com/agladkov/php-smpp",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "OnlineCity",
+            "email": "hd@onlinecity.dk",
+            "homepage": "http://www.onlinecity.dk/"
+        },
+        {
+            "name": "Anton Gladkov",
+            "email": "agladkov@it-lame.ru",
+            "homepage": "http://www.it-lame.ru"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "ext-sockets": "*"
+    },
+    "require-dev": {
+    },
+    "suggest": {
+    },
+    "autoload": {
+        "psr-0": {"OnlineCity": "src/"}
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.0-dev"
+        }
+    }
+}

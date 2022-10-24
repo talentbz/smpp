@@ -4,19 +4,15 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInita9a0cf8df02e99d89d58d4c2e1e84a0a
+class ComposerStaticInitf6db21d7ef03623e49bd35dd65d0759d
 {
-    public static $prefixLengthsPsr4 = array (
-        'P' => 
+    public static $prefixesPsr0 = array (
+        'O' => 
         array (
-            'PhpSmpp\\' => 8,
-        ),
-    );
-
-    public static $prefixDirsPsr4 = array (
-        'PhpSmpp\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/glushkovds/php-smpp/src',
+            'OnlineCity' => 
+            array (
+                0 => __DIR__ . '/..' . '/its/php-smpp/src',
+            ),
         ),
     );
 
@@ -27,9 +23,8 @@ class ComposerStaticInita9a0cf8df02e99d89d58d4c2e1e84a0a
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInita9a0cf8df02e99d89d58d4c2e1e84a0a::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInita9a0cf8df02e99d89d58d4c2e1e84a0a::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInita9a0cf8df02e99d89d58d4c2e1e84a0a::$classMap;
+            $loader->prefixesPsr0 = ComposerStaticInitf6db21d7ef03623e49bd35dd65d0759d::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInitf6db21d7ef03623e49bd35dd65d0759d::$classMap;
 
         }, null, ClassLoader::class);
     }

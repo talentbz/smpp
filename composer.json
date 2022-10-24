@@ -1,5 +1,5 @@
 {
     "require": {
-        "glushkovds/php-smpp": "^0.5"
+        "its/php-smpp": "dev-master"
     }
 }
