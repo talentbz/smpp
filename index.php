@@ -42,7 +42,7 @@
 	// send string to server
 	//socket_write($socket, $message, strlen($message)) or die("Could not send data to server\n");
 	// get server response
-	$result = socket_read ($socket, 1024) or die("Could not read server response\n");
+	// $result = socket_read ($socket, 1024) or die("Could not read server response\n");
 	echo "Reply From Server  :".$result;
 	// close socket
 	socket_close($socket);
