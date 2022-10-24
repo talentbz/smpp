@@ -184,7 +184,7 @@ class SocketTransport
 	 */
 	public function isOpen()
 	{
-		if('is_resource($this->socket)'.is_resource($this->socket));
+		print_r('is_resource($this->socket)'.is_resource($this->socket));
 		if (!is_resource($this->socket)) return false;
 		$r = null;
 		$w = null;
